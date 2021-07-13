@@ -9,9 +9,7 @@ This is a simple Mysql procedure to implement a RRD table. This is helpful for p
 CREATE TABLE  `dbanme`.`rrd_tablename` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sequence_id` int(10) unsigned NOT NULL,
-  `col1` varchar(45),
-  `col2` float, 
-  `colx` float,
+  `value` varchar(30),
   `tstamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -35,3 +33,17 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+
+### Explanation
+
+```
+SET @table_size = (SELECT COUNT(*) as table_size FROM dbanme.rrd_tablename);
+```
+This get the total number of a row.
+
+
+
+
+
+
+
