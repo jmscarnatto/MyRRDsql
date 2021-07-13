@@ -5,6 +5,7 @@ This is a simple Mysql procedure to implement a RRD table. This is helpful for p
 
 ## Create an empty table with the desired number of rows
 
+```
 CREATE TABLE  `dbanme`.`rrd_tablename` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sequence_id` int(10) unsigned NOT NULL,
@@ -15,11 +16,12 @@ CREATE TABLE  `dbanme`.`rrd_tablename` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 INSERT INTO rrd_tablename (sequence_id) VALUES (1,2,3,4,..,n) // n being the final size of your table
+```
 
 ## Now the Magic!
 
+```
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `dbanme`.`InsertIntoRRD` $$
 CREATE PROCEDURE `myDB`.`InsertIntoRRD`(IN xValue VARCHAR(30))
@@ -32,4 +34,4 @@ BEGIN
   ON DUPLICATE KEY UPDATE value=xValue,tstamp=now();
 END $$
 DELIMITER ;
-
+```
