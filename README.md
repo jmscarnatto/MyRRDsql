@@ -17,7 +17,7 @@ CREATE TABLE  `dbanme`.`rrd_tablename` (
 INSERT INTO rrd_tablename (sequence_id) VALUES (1,2,3,4,..,n) // n being the final size of your table
 ```
 
-## Now the Magic!
+## Here comes the magic!
 
 ```
 DELIMITER $$
